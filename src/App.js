@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { 
+  GoldRushProvider, 
+  TokenBalancesListView, 
+} from "@covalenthq/goldrush-kit";
+import "@covalenthq/goldrush-kit/styles.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GoldRushProvider 
+      apikey={process.env.REACT_APP_API_BESTIE} 
+      mode="dark" 
+      color="pink"
+    >
+     <TokenBalancesListView 
+        address= "0x882E1dE551f96a01988951da1639a15E52E8266f" 
+        chain_names= {["eth-mainnet"]}>
+     </TokenBalancesListView>
+    </GoldRushProvider>
   );
 }
 
